@@ -1,3 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Remove previous deployment so Install doesn't fail with "file already exists"
+WAR=/usr/share/tomcat/webapps/nextwork-web-project.war
+EXPLODED=/usr/share/tomcat/webapps/nextwork-web-project
+rm -f "$WAR" || true
+rm -rf "$EXPLODED" || true
 #!/bin/bash
 sudo yum install tomcat -y
 sudo yum -y install httpd
